@@ -10,11 +10,12 @@ namespace TopDownShooter
         [SerializeField] private float moveSpeed;
         [SerializeField] private LayerMask wallLayer;
 
-        private Transform target;
         private CameraCorner leftDownCorner;
         private CameraCorner rightDownCorner;
         private CameraCorner leftUpCorner;
         private CameraCorner rightUpCorner;
+        private Transform target;
+        private Vector3 targetPos;
 
         public void Init(Transform target)
         {
@@ -46,25 +47,31 @@ namespace TopDownShooter
 
         private void CheckForWalls()
         {
-            //if (leftDownCorner.HasWallHit && leftUpCorner.HasWallHit)
-            //{
-            //    ClampLeft();
-            //}
+            targetPos = target.position;
 
-            //if (rightDownCorner.HasWallHit && rightUpCorner.HasWallHit)
-            //{
-            //    ClampRight();
-            //}
+            //clamp left
+            if (leftDownCorner.HasWallHit && leftUpCorner.HasWallHit)
+            {
+                targetPos.x = Mathf.Clamp(targetPos.x, transform.position.x, float.PositiveInfinity);
+            }
 
-            //if (leftDownCorner.HasWallHit && rightDownCorner.HasWallHit)
-            //{
-            //    ClampDown();
-            //}
+            //clamp right
+            if (rightDownCorner.HasWallHit && rightUpCorner.HasWallHit)
+            {
+                targetPos.x = Mathf.Clamp(targetPos.x, float.NegativeInfinity, transform.position.x);
+            }
 
-            //if (leftUpCorner.HasWallHit && rightUpCorner.HasWallHit)
-            //{
-            //    ClampUp();
-            //}
+            //clamp down
+            if (leftDownCorner.HasWallHit && rightDownCorner.HasWallHit)
+            {
+                targetPos.z = Mathf.Clamp(targetPos.z, transform.position.z, float.PositiveInfinity);
+            }
+
+            //clamp up
+            if (leftUpCorner.HasWallHit && rightUpCorner.HasWallHit)
+            {
+                targetPos.z = Mathf.Clamp(targetPos.z, float.NegativeInfinity, transform.position.z);
+            }
         }
 
         private void FollowTarget()
@@ -72,7 +79,7 @@ namespace TopDownShooter
             if (target == null)
                 return;
 
-            transform.position = Vector3.Lerp(transform.position, target.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, targetPos, moveSpeed * Time.deltaTime);
             //Vector3 direction = (target.position - transform.position).normalized;
             //movement.Move(direction);
         }
