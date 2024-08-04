@@ -7,6 +7,7 @@ namespace TopDownShooter
     public class GameplayBootstrap : MonoBehaviour
     {
         [SerializeField] private Transform playerSpawnPoint;
+        [SerializeField] private CameraController cameraController;
         [SerializeField] private PrefabConfig prefabConfig;
 
         private PlayerFactory playerFactory;
@@ -20,7 +21,8 @@ namespace TopDownShooter
             playerFactory = new(prefabConfig.player, playerSpawnPoint, input, bulletFactory);
 
             input.Enable();
-            playerFactory.Create();
+            Player player = playerFactory.Create();
+            cameraController.Init(player.transform);
         }
 
         private void Update()
