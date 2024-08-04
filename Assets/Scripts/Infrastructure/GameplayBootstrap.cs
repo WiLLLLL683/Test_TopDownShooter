@@ -6,13 +6,24 @@ namespace TopDownShooter
 {
     public class GameplayBootstrap : MonoBehaviour
     {
-        [SerializeField] private Player player;
-        [SerializeField] private Input input;
+        [SerializeField] private Transform playerSpawnPoint;
+        [SerializeField] private PrefabConfig prefabConfig;
+
+        private PlayerFactory playerFactory;
+        private Input input;
 
         private void Awake()
         {
+            input = new();
+            playerFactory = new(prefabConfig.playerPrefab, playerSpawnPoint, input);
+
             input.Enable();
-            player.Init(input);
+            playerFactory.Create();
+        }
+
+        private void Update()
+        {
+            input.Update();
         }
     }
 }

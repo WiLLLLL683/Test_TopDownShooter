@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace TopDownShooter
 {
-    public class Input : MonoBehaviour, IInput
+    public class Input: IInput
     {
         public event Action<Vector2> OnInputMove;
         public event Action<Vector2> OnPointerScreenPos;
@@ -31,7 +31,7 @@ namespace TopDownShooter
             controls.Gameplay.Shoot.performed -= ShootInput;
         }
 
-        private void Update()
+        public void Update()
         {
             if (controls.Gameplay.Move.IsPressed())
             {

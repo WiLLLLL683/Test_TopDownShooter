@@ -59,7 +59,7 @@ namespace TopDownShooter
                 return;
 
             Quaternion rotation = Quaternion.LookRotation(lookTargetPos - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
     }
 }
