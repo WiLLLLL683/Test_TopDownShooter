@@ -6,20 +6,22 @@ namespace TopDownShooter
 {
     public class Bullet : MonoBehaviour
     {
+        [SerializeField] private MovementBase movement;
+
         private Vector3 direction;
         private int damage;
-        private float speed;
 
         public void Init(Vector3 direction, int damage, float speed)
         {
             this.direction = direction;
             this.damage = damage;
-            this.speed = speed;
+
+            movement.Init(speed);
         }
 
         public void Update()
         {
-            Move(direction);
+            movement.Move(direction);
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -30,11 +32,6 @@ namespace TopDownShooter
             }
 
             Destroy(gameObject);
-        }
-
-        private void Move(Vector3 direction)
-        {
-            transform.position += speed * Time.deltaTime * direction.normalized;
         }
     }
 }

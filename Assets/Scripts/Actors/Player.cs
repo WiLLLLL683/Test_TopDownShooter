@@ -8,12 +8,12 @@ namespace TopDownShooter
     {
         [Header("Components")]
         [SerializeField] private Transform gunPoint;
+        [SerializeField] private MovementBase movement;
         [SerializeField] private InventoryBase inventory;
-        [Header("Config")]
-        [Tooltip("units per second")]
-        [SerializeField] private float moveSpeed = 4f;
+
         [Tooltip("degrees per second")]
         [SerializeField] private float rotationSpeed = 180f;
+
         [SerializeField] private int damage;
         [SerializeField] private int bulletSpeed;
 
@@ -44,10 +44,7 @@ namespace TopDownShooter
             LookAtTarget();
         }
 
-        private void Move(Vector2 direction)
-        {
-            transform.position += moveSpeed * Time.deltaTime * new Vector3(direction.x, 0, direction.y).normalized;
-        }
+        private void Move(Vector2 inputDirection) => movement.Move(new Vector3(inputDirection.x, 0, inputDirection.y));
 
         private void Shoot()
         {
