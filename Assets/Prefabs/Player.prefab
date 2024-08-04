@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7271876620828024712}
   - component: {fileID: 531619274379423698}
   - component: {fileID: 7328416449072374247}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,8 +96,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5690807765846072478}
   - component: {fileID: 649636663194610722}
+  - component: {fileID: 4262119385523473939}
   - component: {fileID: 5712075523608806661}
-  m_Layer: 0
+  - component: {fileID: 7823731528528905628}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,10 +136,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunPoint: {fileID: 8791859260958659406}
+  inventory: {fileID: 4262119385523473939}
   moveSpeed: 4
   rotationSpeed: 180
   damage: 10
   bulletSpeed: 10
+--- !u!114 &4262119385523473939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777591198641474570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed1a02ddbe336534a89bd68d054b4e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialItems: []
 --- !u!136 &5712075523608806661
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -161,6 +177,33 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!54 &7823731528528905628
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777591198641474570}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &8077452628175002446
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8791859260958659406}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GunPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +246,7 @@ GameObject:
   - component: {fileID: 6647386537915115900}
   - component: {fileID: 2243760271791501139}
   - component: {fileID: 1714888905032595155}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}

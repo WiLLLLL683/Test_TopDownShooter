@@ -8,6 +8,7 @@ namespace TopDownShooter
     {
         [Header("Components")]
         [SerializeField] private Transform gunPoint;
+        [SerializeField] private InventoryBase inventory;
         [Header("Config")]
         [Tooltip("units per second")]
         [SerializeField] private float moveSpeed = 4f;
