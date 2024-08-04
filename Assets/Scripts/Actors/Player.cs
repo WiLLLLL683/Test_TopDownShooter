@@ -9,18 +9,14 @@ namespace TopDownShooter
         [Header("Components")]
         [SerializeField] private Transform gunPoint;
         [SerializeField] private MovementBase movement;
+        [SerializeField] private AimBase aim;
         [SerializeField] private InventoryBase inventory;
-
-        [Tooltip("degrees per second")]
-        [SerializeField] private float rotationSpeed = 180f;
 
         [SerializeField] private int damage;
         [SerializeField] private int bulletSpeed;
 
         private IInput input;
         private BulletFactory bulletFactory;
-        private Vector3 lookTargetPos;
-        private bool haveLookTarget;
 
         public void Init(IInput input, BulletFactory bulletFactory)
         {
@@ -29,19 +25,14 @@ namespace TopDownShooter
 
             input.OnInputMove += Move;
             input.OnInputShoot += Shoot;
-            input.OnPointerWorldPos += SetLookTarget;
+            input.OnPointerWorldPos += aim.SetLookTarget;
         }
 
         private void OnDestroy()
         {
             input.OnInputMove -= Move;
             input.OnInputShoot -= Shoot;
-            input.OnPointerWorldPos -= SetLookTarget;
-        }
-
-        private void Update()
-        {
-            LookAtTarget();
+            input.OnPointerWorldPos -= aim.SetLookTarget;
         }
 
         private void Move(Vector2 inputDirection) => movement.Move(new Vector3(inputDirection.x, 0, inputDirection.y));
@@ -49,22 +40,6 @@ namespace TopDownShooter
         private void Shoot()
         {
             bulletFactory.Create(gunPoint.position, gunPoint.forward, damage, bulletSpeed);
-        }
-
-        private void SetLookTarget(Vector3 targetPosition)
-        {
-            haveLookTarget = true;
-            targetPosition.y = transform.position.y;
-            lookTargetPos = targetPosition;
-        }
-
-        private void LookAtTarget()
-        {
-            if (!haveLookTarget)
-                return;
-
-            Quaternion rotation = Quaternion.LookRotation(lookTargetPos - transform.position);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
     }
 }
