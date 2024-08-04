@@ -10,12 +10,14 @@ namespace TopDownShooter
         [SerializeField] private PrefabConfig prefabConfig;
 
         private PlayerFactory playerFactory;
+        private BulletFactory bulletFactory;
         private Input input;
 
         private void Awake()
         {
             input = new();
-            playerFactory = new(prefabConfig.playerPrefab, playerSpawnPoint, input);
+            bulletFactory = new(prefabConfig.bullet);
+            playerFactory = new(prefabConfig.player, playerSpawnPoint, input, bulletFactory);
 
             input.Enable();
             playerFactory.Create();

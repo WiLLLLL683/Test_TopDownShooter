@@ -8,6 +8,7 @@ namespace TopDownShooter
     [CreateAssetMenu(fileName = "PrefabConfig", menuName = "GameConfig/PrefabConfig")]
     public class PrefabConfig : ScriptableObject
     {
-        public Player playerPrefab;
+        public Player player;
+        public Bullet bullet;
     }
 }
