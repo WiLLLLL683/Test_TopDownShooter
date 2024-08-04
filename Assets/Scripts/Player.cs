@@ -13,6 +13,7 @@ namespace TopDownShooter
 
         private IInput input;
         private Vector3 lookTargetPos;
+        private bool haveLookTarget;
 
         public void Init(IInput input)
         {
@@ -47,17 +48,18 @@ namespace TopDownShooter
 
         private void SetLookTarget(Vector3 targetPosition)
         {
-            targetPosition.y = 0;
+            haveLookTarget = true;
+            targetPosition.y = transform.position.y;
             lookTargetPos = targetPosition;
         }
 
         private void LookAtTarget()
         {
-            //TODO расчет поворота с заданной скоростью
-            Vector3 lookDirection = lookTargetPos - transform.position;
-            lookDirection.y = 0;
-            lookDirection = lookDirection.normalized;
-            transform.rotation = Quaternion.LookRotation(lookDirection, Vector3.up);
+            if (!haveLookTarget)
+                return;
+
+            Quaternion rotation = Quaternion.LookRotation(lookTargetPos - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
     }
 }
