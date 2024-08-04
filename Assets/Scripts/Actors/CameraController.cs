@@ -9,6 +9,7 @@ namespace TopDownShooter
         [SerializeField] private Camera cam;
         [SerializeField] private float moveSpeed;
         [SerializeField] private LayerMask wallLayer;
+        [SerializeField] private float margin;
 
         private CameraCorner leftDownCorner;
         private CameraCorner rightDownCorner;
@@ -29,7 +30,7 @@ namespace TopDownShooter
         private void FixedUpdate()
         {
             UpdateCameraCorners();
-            CheckForWalls();
+            ClampMovement();
         }
 
         private void Update()
@@ -39,13 +40,24 @@ namespace TopDownShooter
 
         private void UpdateCameraCorners()
         {
-            leftDownCorner?.Update(new Vector3(0, 0));
-            rightDownCorner?.Update(new Vector3(cam.pixelWidth - 1, 0));
-            leftUpCorner?.Update(new Vector3(0, cam.pixelHeight - 1));
-            rightUpCorner?.Update(new Vector3(cam.pixelWidth - 1, cam.pixelHeight - 1));
+            leftDownCorner?.Update(
+                new Vector3(0, 0) +
+                new Vector3(margin, margin));
+
+            rightDownCorner?.Update(
+                new Vector3(cam.pixelWidth - 1, 0) +
+                new Vector3(-margin, margin));
+
+            leftUpCorner?.Update(
+                new Vector3(0, cam.pixelHeight - 1) +
+                new Vector3(margin, -margin));
+
+            rightUpCorner?.Update(
+                new Vector3(cam.pixelWidth - 1, cam.pixelHeight - 1) +
+                new Vector3(-margin, -margin));
         }
 
-        private void CheckForWalls()
+        private void ClampMovement()
         {
             targetPos = target.position;
 
@@ -80,8 +92,6 @@ namespace TopDownShooter
                 return;
 
             transform.position = Vector3.Lerp(transform.position, targetPos, moveSpeed * Time.deltaTime);
-            //Vector3 direction = (target.position - transform.position).normalized;
-            //movement.Move(direction);
         }
     }
 
