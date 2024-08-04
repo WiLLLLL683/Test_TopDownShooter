@@ -7,13 +7,10 @@ namespace TopDownShooter
     public class Player : MonoBehaviour
     {
         [Header("Components")]
-        [SerializeField] private Transform gunPoint;
         [SerializeField] private MovementBase movement;
         [SerializeField] private AimBase aim;
+        [SerializeField] private WeaponBase weapon;
         [SerializeField] private InventoryBase inventory;
-
-        [SerializeField] private int damage;
-        [SerializeField] private int bulletSpeed;
 
         private IInput input;
         private BulletFactory bulletFactory;
@@ -23,23 +20,22 @@ namespace TopDownShooter
             this.input = input;
             this.bulletFactory = bulletFactory;
 
+            weapon.Init(bulletFactory);
+
             input.OnInputMove += Move;
-            input.OnInputShoot += Shoot;
-            input.OnPointerWorldPos += aim.SetLookTarget;
+            input.OnInputShoot += Attack;
+            input.OnPointerWorldPos += Aim;
         }
 
         private void OnDestroy()
         {
             input.OnInputMove -= Move;
-            input.OnInputShoot -= Shoot;
-            input.OnPointerWorldPos -= aim.SetLookTarget;
+            input.OnInputShoot -= Attack;
+            input.OnPointerWorldPos -= Aim;
         }
 
         private void Move(Vector2 inputDirection) => movement.Move(new Vector3(inputDirection.x, 0, inputDirection.y));
-
-        private void Shoot()
-        {
-            bulletFactory.Create(gunPoint.position, gunPoint.forward, damage, bulletSpeed);
-        }
+        private void Attack() => weapon.Attack();
+        private void Aim(Vector3 targetPosition) => aim.SetLookTarget(targetPosition);
     }
 }
