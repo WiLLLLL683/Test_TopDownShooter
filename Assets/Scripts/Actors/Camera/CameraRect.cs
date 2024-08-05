@@ -10,12 +10,12 @@ namespace TopDownShooter
         public CameraCorner LeftUpCorner { get; private set; }
         public CameraCorner RightUpCorner { get; private set; }
 
-        public CameraRect(Camera cam, LayerMask wallLayer, float margin)
+        public CameraRect(Camera cam, LayerMask layerMask, LayerMask wallLayer, float margin)
         {
-            LeftDownCorner = new(cam, wallLayer, new Vector3(0, 0) + new Vector3(margin, margin));
-            RightDownCorner = new(cam, wallLayer, new Vector3(cam.pixelWidth - 1, 0) + new Vector3(-margin, margin));
-            LeftUpCorner = new(cam, wallLayer, new Vector3(0, cam.pixelHeight - 1) + new Vector3(margin, -margin));
-            RightUpCorner = new(cam, wallLayer, new Vector3(cam.pixelWidth - 1, cam.pixelHeight - 1) + new Vector3(-margin, -margin));
+            LeftDownCorner = new(cam, layerMask, wallLayer, new Vector3(0, 0) + new Vector3(margin, margin));
+            RightDownCorner = new(cam, layerMask, wallLayer, new Vector3(cam.pixelWidth - 1, 0) + new Vector3(-margin, margin));
+            LeftUpCorner = new(cam, layerMask, wallLayer, new Vector3(0, cam.pixelHeight - 1) + new Vector3(margin, -margin));
+            RightUpCorner = new(cam, layerMask, wallLayer, new Vector3(cam.pixelWidth - 1, cam.pixelHeight - 1) + new Vector3(-margin, -margin));
         }
 
         public void UpdateCameraCorners()

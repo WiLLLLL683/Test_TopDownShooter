@@ -50,7 +50,11 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 1024
-  margin: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1032
+  innerMargin: 20
+  outerMargin: -20
 --- !u!1 &3442726185989840947
 GameObject:
   m_ObjectHideFlags: 0

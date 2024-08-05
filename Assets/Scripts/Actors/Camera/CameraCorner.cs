@@ -12,13 +12,15 @@ namespace TopDownShooter
 
         private RaycastHit hitInfo;
         private Camera cam;
+        private readonly LayerMask layerMask;
         private LayerMask wallLayer;
         private readonly Vector3 screenPos;
         private readonly Vector3 worldPos;
 
-        public CameraCorner(Camera cam, LayerMask wallLayer, Vector3 screenPos)
+        public CameraCorner(Camera cam, LayerMask layerMask, LayerMask wallLayer, Vector3 screenPos)
         {
             this.cam = cam;
+            this.layerMask = layerMask;
             this.wallLayer = wallLayer;
             this.screenPos = screenPos;
         }
@@ -26,7 +28,7 @@ namespace TopDownShooter
         public void Update()
         {
             HitPos = cam.ScreenToWorldPoint(screenPos);
-            HasHit = Physics.Raycast(HitPos, cam.transform.forward, out hitInfo, cam.farClipPlane);
+            HasHit = Physics.Raycast(HitPos, cam.transform.forward, out hitInfo, cam.farClipPlane, layerMask);
 
             if (HasHit)
             {

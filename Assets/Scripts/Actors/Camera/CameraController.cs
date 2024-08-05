@@ -9,6 +9,7 @@ namespace TopDownShooter
         [SerializeField] private Camera cam;
         [SerializeField] private float moveSpeed;
         [SerializeField] private LayerMask wallLayer;
+        [SerializeField] private LayerMask layerMask;
         [SerializeField] private float innerMargin;
         [SerializeField] private float outerMargin;
 
@@ -21,8 +22,8 @@ namespace TopDownShooter
         public void Init(Transform target)
         {
             this.target = target;
-            InnerRect = new(cam, wallLayer, innerMargin);
-            OuterRect = new(cam, wallLayer, outerMargin);
+            InnerRect = new(cam, layerMask, wallLayer, innerMargin);
+            OuterRect = new(cam, layerMask, wallLayer, outerMargin);
 
             InnerRect.UpdateCameraCorners();
             OuterRect.UpdateCameraCorners();
