@@ -26,16 +26,24 @@ namespace TopDownShooter
 
         private void Awake()
         {
+            //input
             input = new();
+            input.Enable();
+
+            //player independent services
             scoreService = new(0); //TODO загрузка очков
             bulletFactory = new(prefabConfig.bullet);
             playerFactory = new(prefabConfig.player, playerSpawnPoint, input, bulletFactory);
-            enemyFactory = new(leftDownLevelCorner.position, rightUpLevelCorner.position, cameraController, bulletFactory, scoreService);
-            enemySpawner = new(enemySetConfig, enemyFactory);
 
-            input.Enable();
+            //player spawn
             Player player = playerFactory.Create();
+
+            //player dependent services
+            enemyFactory = new(leftDownLevelCorner.position, rightUpLevelCorner.position, cameraController, bulletFactory, scoreService, player.transform);
+            enemySpawner = new(enemySetConfig, enemyFactory);
             cameraController.Init(player.transform);
+
+            //UI init
             hudUI.Init(scoreService);
         }
 

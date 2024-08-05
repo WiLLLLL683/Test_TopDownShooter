@@ -11,11 +11,13 @@ namespace TopDownShooter
         [SerializeField] private HealthBase health;
 
         private EnemyConfig config;
+        private Transform target;
         private ScoreService scoreService;
 
-        public void Init(EnemyConfig config, ScoreService scoreService)
+        public void Init(EnemyConfig config, Transform target, ScoreService scoreService)
         {
             this.config = config;
+            this.target = target;
             this.scoreService = scoreService;
 
             health.Init(config.health);
@@ -26,6 +28,19 @@ namespace TopDownShooter
         private void OnDestroy()
         {
             health.OnDeath -= Die;
+        }
+
+        private void Update()
+        {
+            MoveToTarget();
+        }
+
+        private void MoveToTarget()
+        {
+            if (target == null)
+                return;
+
+            navMeshAgent.SetDestination(target.position);
         }
 
         private void Die()
