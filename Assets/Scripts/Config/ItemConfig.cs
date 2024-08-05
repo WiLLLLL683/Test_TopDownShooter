@@ -9,6 +9,8 @@ namespace TopDownShooter
     public class ItemConfig : ScriptableObject
     {
         public string id;
-        //TODO 
+        public PickUpItem prefab;
+
+        //TODO OnPickUp();
     }
 }

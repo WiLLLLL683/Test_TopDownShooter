@@ -16,12 +16,16 @@ namespace TopDownShooter
         [Header("Config")]
         [SerializeField] private PrefabConfig prefabConfig;
         [SerializeField] private EnemySetConfig enemySetConfig;
+        [SerializeField] private ItemSetConfig weaponSetConfig;
+        [SerializeField] private ItemSetConfig bonusSetConfig;
 
         private PlayerFactory playerFactory;
         private EnemyFactory enemyFactory;
         private BulletFactory bulletFactory;
+        private PickUpFactory pickUpFactory;
         private Input input;
         private EnemySpawner enemySpawner;
+        private PickUpSpawner pickUpSpawner;
         private ScoreService scoreService;
 
         private void Awake()
@@ -42,6 +46,8 @@ namespace TopDownShooter
             enemyFactory = new(leftDownLevelCorner.position, rightUpLevelCorner.position, cameraController, bulletFactory, scoreService, player.transform);
             enemySpawner = new(enemySetConfig, enemyFactory);
             cameraController.Init(player.transform);
+            pickUpFactory = new(cameraController);
+            pickUpSpawner = new(pickUpFactory, weaponSetConfig, bonusSetConfig);
 
             //UI init
             hudUI.Init(scoreService);
@@ -51,6 +57,7 @@ namespace TopDownShooter
         {
             input.Update();
             enemySpawner.Update();
+            pickUpSpawner.Update();
         }
     }
 }

@@ -7,6 +7,7 @@ namespace TopDownShooter
     [CreateAssetMenu(fileName = "ItemSetConfig", menuName = "GameConfig/ItemSetConfig")]
     public class ItemSetConfig : ScriptableObject
     {
+        public float spawnDelay;
         [SerializeField] private List<ItemConfig> items = new();
 
         public bool TryGetItemConfig(string id, out ItemConfig item)
@@ -22,6 +23,12 @@ namespace TopDownShooter
 
             item = null;
             return false;
+        }
+
+        public ItemConfig GetRandom()
+        {
+            int random = Random.Range(0, items.Count);
+            return items[random];
         }
     }
 }

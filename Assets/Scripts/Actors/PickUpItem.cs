@@ -6,7 +6,7 @@ namespace TopDownShooter
 {
     public class PickUpItem : MonoBehaviour
     {
-        [SerializeField] private ItemData item;
+        [SerializeField] private ItemData item; //TODO заменить на ItemConfig?
 
         public void Init(ItemData item)
         {

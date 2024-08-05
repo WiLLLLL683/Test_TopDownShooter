@@ -1099,6 +1099,8 @@ MonoBehaviour:
   hudUI: {fileID: 7150494295652029625}
   prefabConfig: {fileID: 11400000, guid: 05133f4f7f402d7418993796b150ea98, type: 2}
   enemySetConfig: {fileID: 11400000, guid: 1b55901d13a5d6d4fbab76e3e5509260, type: 2}
+  weaponSetConfig: {fileID: 11400000, guid: 9b6590ce036a7834f9a317d73626bddc, type: 2}
+  bonusSetConfig: {fileID: 11400000, guid: d158ab0063d151c42a38845992492dd0, type: 2}
 --- !u!4 &1664482867
 Transform:
   m_ObjectHideFlags: 0

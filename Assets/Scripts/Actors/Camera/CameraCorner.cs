@@ -10,12 +10,12 @@ namespace TopDownShooter
         public Vector3 HitPos { get; private set; }
         public RaycastHit HitInfo => hitInfo;
 
-        private RaycastHit hitInfo;
-        private Camera cam;
+        private readonly Camera cam;
         private readonly LayerMask layerMask;
-        private LayerMask wallLayer;
+        private readonly LayerMask wallLayer;
         private readonly Vector3 screenPos;
-        private readonly Vector3 worldPos;
+        private Vector3 worldPos;
+        private RaycastHit hitInfo;
 
         public CameraCorner(Camera cam, LayerMask layerMask, LayerMask wallLayer, Vector3 screenPos)
         {
@@ -27,8 +27,8 @@ namespace TopDownShooter
 
         public void Update()
         {
-            HitPos = cam.ScreenToWorldPoint(screenPos);
-            HasHit = Physics.Raycast(HitPos, cam.transform.forward, out hitInfo, cam.farClipPlane, layerMask);
+            worldPos = cam.ScreenToWorldPoint(screenPos);
+            HasHit = Physics.Raycast(worldPos, cam.transform.forward, out hitInfo, cam.farClipPlane, layerMask);
 
             if (HasHit)
             {
