@@ -9,21 +9,19 @@ namespace TopDownShooter
     {
         [SerializeField] private HealthBase health;
         [SerializeField] private PathFindBase pathFind;
-        [SerializeField] private float smoothTime;
+        [SerializeField] private MovementBase movement;
 
         private EnemyConfig config;
-        private Transform target;
         private ScoreService scoreService;
-        private Vector3 velocity = Vector3.zero;
 
         public void Init(EnemyConfig config, Transform target, ScoreService scoreService)
         {
             this.config = config;
-            this.target = target;
             this.scoreService = scoreService;
 
             health.Init(config.health);
             pathFind.SetTarget(target);
+            movement.Init(config.moveSpeed);
 
             health.OnDeath += Die;
         }
@@ -43,7 +41,8 @@ namespace TopDownShooter
 
         private void MoveAlongPath(Vector3 targetPosition)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime, config.moveSpeed);
+            Vector3 direction = targetPosition - transform.position;
+            movement.Move(direction);
         }
 
         private void Die()
