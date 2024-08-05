@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d948f4017f7597419ec03227f4c484f, type: 3}
+  m_Name: EnemySetConfig
+  m_EditorClassIdentifier: 
+  maxSpawnDelay: 0
+  minSpawnDelay: 0
+  spawnDelayDecrease: 0
+  spawnDelayDecreaseRate: 0
+  enemies:
+  - {fileID: 11400000, guid: 5c110e966a3cb324fb46ea511f5d939d, type: 2}
+  defaultEnemy: {fileID: 11400000, guid: 5c110e966a3cb324fb46ea511f5d939d, type: 2}

@@ -954,6 +954,7 @@ MonoBehaviour:
   rightUpLevelCorner: {fileID: 1972159333}
   cameraController: {fileID: 3977133632718803896}
   prefabConfig: {fileID: 11400000, guid: 05133f4f7f402d7418993796b150ea98, type: 2}
+  enemySetConfig: {fileID: 11400000, guid: 1b55901d13a5d6d4fbab76e3e5509260, type: 2}
 --- !u!4 &1664482867
 Transform:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ namespace TopDownShooter
 {
     public class Enemy : MonoBehaviour
     {
-        public void Init()
+        public void Init(EnemyConfig config)
         {
             // TODO: Add your implementation
         }

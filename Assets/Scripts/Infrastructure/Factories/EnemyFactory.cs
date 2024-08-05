@@ -4,7 +4,6 @@ namespace TopDownShooter
 {
     public class EnemyFactory
     {
-        private readonly Enemy prefab;
         private readonly Vector3 leftDownLevelCorner;
         private readonly Vector3 rightUpLevelCorner;
         private readonly CameraController camera;
@@ -12,23 +11,22 @@ namespace TopDownShooter
 
         private const int MAX_ITERATIONS = 1000;
 
-        public EnemyFactory(Enemy prefab, Vector3 leftDownLevelCorner, Vector3 rightUpLevelCorner, CameraController camera, BulletFactory bulletFactory)
+        public EnemyFactory(Vector3 leftDownLevelCorner, Vector3 rightUpLevelCorner, CameraController camera, BulletFactory bulletFactory)
         {
-            this.prefab = prefab;
             this.leftDownLevelCorner = leftDownLevelCorner;
             this.rightUpLevelCorner = rightUpLevelCorner;
             this.camera = camera;
             this.bulletFactory = bulletFactory;
         }
 
-        public Enemy Create()
+        public Enemy Create(EnemyConfig config)
         {
             for (int i = 0; i < MAX_ITERATIONS; i++)
             {
                 Vector3 point = GetRandomPointOnLevel();
                 if (!camera.IsInsideOuterRect(point))
                 {
-                    return Instatntiate(point);
+                    return Instatntiate(config, point);
                 }
             }
 
@@ -36,10 +34,10 @@ namespace TopDownShooter
             return null;
         }
 
-        private Enemy Instatntiate(Vector3 position)
+        private Enemy Instatntiate(EnemyConfig config, Vector3 position)
         {
-            Enemy enemy = Object.Instantiate(prefab, position, Quaternion.identity);
-            enemy.Init();
+            Enemy enemy = Object.Instantiate(config.prefab, position, Quaternion.identity);
+            enemy.Init(config);
             return enemy;
         }
 
