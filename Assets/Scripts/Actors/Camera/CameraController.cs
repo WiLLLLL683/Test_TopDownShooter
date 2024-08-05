@@ -93,14 +93,5 @@ namespace TopDownShooter
 
             transform.position = Vector3.Lerp(transform.position, targetPos, moveSpeed * Time.deltaTime);
         }
-
-        //private void OnDrawGizmosSelected()
-        //{
-        //    Gizmos.color = Color.red;
-        //    Gizmos.DrawSphere(LeftDownCorner.HitInfo.point, 1);
-        //    Gizmos.DrawSphere(RightDownCorner.HitInfo.point, 1);
-        //    Gizmos.DrawSphere(LeftUpCorner.HitInfo.point, 1);
-        //    Gizmos.DrawSphere(RightUpCorner.HitInfo.point, 1);
-        //}
     }
 }
