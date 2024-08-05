@@ -10,6 +10,9 @@ namespace TopDownShooter
         [SerializeField] private HealthBase health;
         [SerializeField] private PathFindBase pathFind;
         [SerializeField] private MovementBase movement;
+        [SerializeField] private AimBase aim;
+        [SerializeField] private int damage;
+        [SerializeField] private LayerMask attackLayer;
 
         private EnemyConfig config;
         private ScoreService scoreService;
@@ -22,6 +25,7 @@ namespace TopDownShooter
             health.Init(config.health);
             pathFind.SetTarget(target);
             movement.Init(config.moveSpeed);
+            //TODO aim.Init();
 
             health.OnDeath += Die;
         }
@@ -36,6 +40,7 @@ namespace TopDownShooter
             if (pathFind.TryFindPath(out Vector3 targetPosition))
             {
                 MoveAlongPath(targetPosition);
+                aim.SetLookTarget(targetPosition);
             }
         }
 
@@ -49,6 +54,17 @@ namespace TopDownShooter
         {
             scoreService.AddPoints(config.pointsForKill);
             Destroy(gameObject);
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (!attackLayer.Contains(collision.gameObject.layer))
+                return;
+
+            if (collision.gameObject.TryGetComponent(out IDamageable damageable))
+            {
+                damageable.TakeDamage(damage);
+            }
         }
     }
 }

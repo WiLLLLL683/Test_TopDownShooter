@@ -96,6 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5690807765846072478}
   - component: {fileID: 649636663194610722}
+  - component: {fileID: 6746077874436338117}
   - component: {fileID: 1113044547054528589}
   - component: {fileID: 4738574192922468430}
   - component: {fileID: 4262119385523473939}
@@ -137,10 +138,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f117047b39405c14292bb183b934c184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 6746077874436338117}
   movement: {fileID: 1113044547054528589}
   aim: {fileID: 4738574192922468430}
   weapon: {fileID: 1730322159578850958}
   inventory: {fileID: 4262119385523473939}
+--- !u!114 &6746077874436338117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777591198641474570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b31fc413bd15f7741a35e82439d29b7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 100
+  maxHealth: 100
 --- !u!114 &1113044547054528589
 MonoBehaviour:
   m_ObjectHideFlags: 0
