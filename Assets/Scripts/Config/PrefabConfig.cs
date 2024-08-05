@@ -9,6 +9,7 @@ namespace TopDownShooter
     public class PrefabConfig : ScriptableObject
     {
         public Player player;
+        public Enemy enemy;
         public Bullet bullet;
     }
 }
