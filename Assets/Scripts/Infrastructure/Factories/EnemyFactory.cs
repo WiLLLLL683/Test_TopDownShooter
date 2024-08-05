@@ -8,15 +8,17 @@ namespace TopDownShooter
         private readonly Vector3 rightUpLevelCorner;
         private readonly CameraController camera;
         private readonly BulletFactory bulletFactory;
+        private readonly ScoreService scoreService;
 
         private const int MAX_ITERATIONS = 1000;
 
-        public EnemyFactory(Vector3 leftDownLevelCorner, Vector3 rightUpLevelCorner, CameraController camera, BulletFactory bulletFactory)
+        public EnemyFactory(Vector3 leftDownLevelCorner, Vector3 rightUpLevelCorner, CameraController camera, BulletFactory bulletFactory, ScoreService scoreService)
         {
             this.leftDownLevelCorner = leftDownLevelCorner;
             this.rightUpLevelCorner = rightUpLevelCorner;
             this.camera = camera;
             this.bulletFactory = bulletFactory;
+            this.scoreService = scoreService;
         }
 
         public Enemy Create(EnemyConfig config)
@@ -37,7 +39,7 @@ namespace TopDownShooter
         private Enemy Instatntiate(EnemyConfig config, Vector3 position)
         {
             Enemy enemy = Object.Instantiate(config.prefab, position, Quaternion.identity);
-            enemy.Init(config);
+            enemy.Init(config, scoreService);
             return enemy;
         }
 

@@ -893,6 +893,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1499949522}
+  - component: {fileID: 1499949523}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -920,6 +921,38 @@ Transform:
   - {fileID: 1383035158}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1499949523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499949521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: efee0946b4930da489987fd4b7ebdb24, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &1664482865
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,8 +986,9 @@ MonoBehaviour:
   leftDownLevelCorner: {fileID: 516733255}
   rightUpLevelCorner: {fileID: 1972159333}
   cameraController: {fileID: 3977133632718803896}
+  hudUI: {fileID: 7150494295652029625}
   prefabConfig: {fileID: 11400000, guid: 05133f4f7f402d7418993796b150ea98, type: 2}
-  enemySetConfig: {fileID: 11400000, guid: 1b55901d13a5d6d4fbab76e3e5509260, type: 2}
+  enemySetConfig: {fileID: 11400000, guid: ad385a70e12bbac49977d7dd3151604d, type: 2}
 --- !u!4 &1664482867
 Transform:
   m_ObjectHideFlags: 0
@@ -1384,6 +1418,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4066079d4a5fa9c4cb2e20c8d8d6a226, type: 3}
+--- !u!114 &7150494295652029625 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6006722324960585428, guid: 4066079d4a5fa9c4cb2e20c8d8d6a226,
+    type: 3}
+  m_PrefabInstance: {fileID: 7150494295652029624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466ed13336eef3f4b93d8beeeced83bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7472013271870334143
 PrefabInstance:
   m_ObjectHideFlags: 0

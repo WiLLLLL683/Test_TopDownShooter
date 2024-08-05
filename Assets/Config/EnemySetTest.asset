@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d948f4017f7597419ec03227f4c484f, type: 3}
-  m_Name: EnemySetConfig
+  m_Name: EnemySetTest
   m_EditorClassIdentifier: 
-  maxSpawnDelay: 2
-  minSpawnDelay: 0.5
+  maxSpawnDelay: 0.1
+  minSpawnDelay: 0.1
   spawnDelayDecrease: 0.1
   spawnDelayDecreaseRate: 10
   enemies:
