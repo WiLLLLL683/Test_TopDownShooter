@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 5712075523608806661}
   - component: {fileID: 7823731528528905628}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: FastEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,8 +119,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7271876620828024712}
   - {fileID: 4344059121672842302}

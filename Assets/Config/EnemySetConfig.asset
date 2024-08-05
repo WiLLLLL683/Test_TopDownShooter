@@ -18,4 +18,6 @@ MonoBehaviour:
   spawnDelayDecreaseRate: 10
   enemies:
   - {fileID: 11400000, guid: 5c110e966a3cb324fb46ea511f5d939d, type: 2}
+  - {fileID: 11400000, guid: a0fc4edd9c72513449f726eb59137aa2, type: 2}
+  - {fileID: 11400000, guid: d0903047093689c4e9237b824eaa3cca, type: 2}
   defaultEnemy: {fileID: 11400000, guid: 5c110e966a3cb324fb46ea511f5d939d, type: 2}
