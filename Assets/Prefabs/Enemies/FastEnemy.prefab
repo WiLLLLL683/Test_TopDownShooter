@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cornerCheckTolerance: 0.6
-  delay: 1
+  delay: 0.5
 --- !u!114 &8046308255770521434
 MonoBehaviour:
   m_ObjectHideFlags: 0

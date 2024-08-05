@@ -12,11 +12,11 @@ namespace TopDownShooter
             this.camera = camera;
         }
 
-        public PickUpItem Create(PickUpItem prefab, ItemData item)
+        public PickUpItem Create(ItemConfig config, int amount)
         {
             Vector3 position = GetRandomPointInsideCamera();
-            PickUpItem pickUp = GameObject.Instantiate(prefab, position, Quaternion.identity);
-            pickUp.Init(item);
+            PickUpItem pickUp = GameObject.Instantiate(config.prefab, position, Quaternion.identity);
+            pickUp.Init(config, amount);
             return pickUp;
         }
 

@@ -10,6 +10,7 @@ namespace TopDownShooter
     {
         public string id;
         public PickUpItem prefab;
+        public float destroyTime;
 
         //TODO OnPickUp();
     }

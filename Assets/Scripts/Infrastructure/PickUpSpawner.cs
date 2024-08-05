@@ -39,8 +39,7 @@ namespace TopDownShooter
         private void SpawnWeapon()
         {
             ItemConfig config = weaponSet.GetRandom();
-            ItemData item = new(){ Id = config.id, Amount = 1 };
-            pickUpFactory.Create(config.prefab, item);
+            pickUpFactory.Create(config, 1);
 
             weaponTimer = weaponSet.spawnDelay;
         }
@@ -48,8 +47,7 @@ namespace TopDownShooter
         private void SpawnBonus()
         {
             ItemConfig config = weaponSet.GetRandom();
-            ItemData item = new() { Id = config.id, Amount = 1 };
-            pickUpFactory.Create(config.prefab, item);
+            pickUpFactory.Create(config, 1);
 
             bonusTimer = bonusSet.spawnDelay;
         }
