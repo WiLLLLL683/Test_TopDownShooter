@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   id: Shotgun
-  itemPrefab: {fileID: 3873781157877417409, guid: 1a77d136fa234e747baa2f3f36607126,
+  itemPrefab: {fileID: 3873781157877417409, guid: d32050935ee030f4f82c0f7db02972fd,
     type: 3}
   destroyTime: 5
   weaponPrefab: {fileID: 2359703401639157630, guid: d53de0a979624f74b85133b41164020b,

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ namespace TopDownShooter
         [SerializeField] private AimBase aim;
         [SerializeField] private InventoryBase inventory;
         [SerializeField] private Transform weaponSlot;
+
+        public event Action<string> OnWeaponChanged;
 
         private IInput input;
         private WeaponFactory weaponFactory;
@@ -51,6 +54,7 @@ namespace TopDownShooter
                 weapon = null;
             }
             weapon = weaponFactory.Create(config, weaponSlot);
+            OnWeaponChanged?.Invoke(config.id);
         }
 
         private void Move(Vector2 inputDirection) => movement.Move(new Vector3(inputDirection.x, 0, inputDirection.y));

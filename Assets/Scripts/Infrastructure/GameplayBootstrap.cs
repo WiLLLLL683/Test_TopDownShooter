@@ -49,7 +49,7 @@ namespace TopDownShooter
             enemySpawner = new(enemySetConfig, enemyFactory);
             cameraController.Init(player.transform);
             pickUpFactory = new(cameraController);
-            pickUpSpawner = new(pickUpFactory, weaponSetConfig, bonusSetConfig);
+            pickUpSpawner = new(player, pickUpFactory, weaponSetConfig, bonusSetConfig);
 
             //UI init
             hudUI.Init(scoreService);
