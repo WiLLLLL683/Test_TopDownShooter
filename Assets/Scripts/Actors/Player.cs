@@ -4,27 +4,29 @@ using UnityEngine;
 
 namespace TopDownShooter
 {
-    public class Player : MonoBehaviour
+    public class Player : MonoBehaviour, IWeaponOwner
     {
         [Header("Components")]
         [SerializeField] private HealthBase health;
         [SerializeField] private MovementBase movement;
         [SerializeField] private AimBase aim;
-        [SerializeField] private WeaponBase weapon;
         [SerializeField] private InventoryBase inventory;
+        [SerializeField] private Transform weaponSlot;
+        [Header("Curren state")]
+        [SerializeField] private WeaponBase weapon;
 
         private IInput input;
-        private BulletFactory bulletFactory;
+        private WeaponFactory weaponFactory;
 
-        public void Init(IInput input, BulletFactory bulletFactory)
+        public void Init(IInput input, WeaponFactory weaponFactory, BulletFactory bulletFactory)
         {
             this.input = input;
-            this.bulletFactory = bulletFactory;
+            this.weaponFactory = weaponFactory;
 
             //TODO health.Init();
             //TODO movement.Init();
             //TODO aim.Init();
-            weapon.Init(bulletFactory);
+            weapon?.Init(bulletFactory);
             inventory.Init();
 
             input.OnInputMove += Move;
@@ -35,7 +37,7 @@ namespace TopDownShooter
 
         private void OnDestroy() => Disable();
 
-        private void Disable()
+        public void Disable()
         {
             input.OnInputMove -= Move;
             input.OnInputShoot -= Attack;
@@ -43,8 +45,17 @@ namespace TopDownShooter
             health.OnDeath -= Die;
         }
 
+        public void AddWeapon(WeaponConfig config)
+        {
+            if (weapon != null)
+            {
+                Destroy(weapon.gameObject);
+            }
+            weapon = weaponFactory.Create(config, weaponSlot);
+        }
+
         private void Move(Vector2 inputDirection) => movement.Move(new Vector3(inputDirection.x, 0, inputDirection.y));
-        private void Attack() => weapon.Attack();
+        private void Attack() => weapon?.Attack();
         private void Aim(Vector3 targetPosition) => aim.SetLookTarget(targetPosition);
         private void Die()
         {

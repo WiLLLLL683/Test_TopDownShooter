@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TopDownShooter
 {
-    public class PickUpItem : MonoBehaviour
+    public class Item : MonoBehaviour
     {
         [SerializeField] private ItemConfig config;
         [SerializeField] private int amount;
@@ -30,12 +30,7 @@ namespace TopDownShooter
 
         private void OnCollisionEnter(Collision collision)
         {
-            if(collision.gameObject.TryGetComponent(out InventoryBase inventory))
-            {
-                ItemData item = new() { Id = config.id, Amount = amount };
-                inventory.AddItem(item);
-            }
-
+            config.OnPickUp(collision.gameObject);
             Destroy(gameObject);
         }
     }

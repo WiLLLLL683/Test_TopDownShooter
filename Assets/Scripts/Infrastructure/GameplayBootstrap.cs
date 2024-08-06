@@ -22,6 +22,7 @@ namespace TopDownShooter
         private PlayerFactory playerFactory;
         private EnemyFactory enemyFactory;
         private BulletFactory bulletFactory;
+        private WeaponFactory weaponFactory;
         private PickUpFactory pickUpFactory;
         private Input input;
         private EnemySpawner enemySpawner;
@@ -37,7 +38,8 @@ namespace TopDownShooter
             //player independent services
             scoreService = new(0); //TODO загрузка очков
             bulletFactory = new(prefabConfig.bullet);
-            playerFactory = new(prefabConfig.player, playerSpawnPoint, input, bulletFactory);
+            weaponFactory = new(bulletFactory);
+            playerFactory = new(prefabConfig.player, playerSpawnPoint, input, weaponFactory, bulletFactory);
 
             //player spawn
             Player player = playerFactory.Create();

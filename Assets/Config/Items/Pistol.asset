@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1304e72d2e2b5e64b93f7a77bae77b97, type: 3}
-  m_Name: Weapon1
+  m_Script: {fileID: 11500000, guid: 5878b41892a4460469fbafafaa352724, type: 3}
+  m_Name: Pistol
   m_EditorClassIdentifier: 
-  id: Weapon1
-  prefab: {fileID: 3873781157877417409, guid: 1a77d136fa234e747baa2f3f36607126, type: 3}
+  id: Pistol
+  itemPrefab: {fileID: 3873781157877417409, guid: 1a77d136fa234e747baa2f3f36607126,
+    type: 3}
   destroyTime: 5
+  weaponPrefab: {fileID: 2359703401639157630, guid: 3d8fde4d66015724ea0bd5ded4ab3d2e,
+    type: 3}

@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c78e82449cddd447aec2fc27e5b8f2f, type: 3}
+  m_Script: {fileID: 11500000, guid: 3787dcd05dd825446b637b8f4c805cf2, type: 3}
   m_Name: WeaponSet
   m_EditorClassIdentifier: 
-  spawnDelay: 0.5
+  spawnDelay: 10
   items:
-  - {fileID: 11400000, guid: 09b7df2eee1827641aa76c28420d25e6, type: 2}
+  - {fileID: 11400000, guid: 036a288372cddd1418fe18bb5e1b170c, type: 2}
