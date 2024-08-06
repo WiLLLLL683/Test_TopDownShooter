@@ -7,17 +7,16 @@ namespace TopDownShooter
     public class Pistol : WeaponBase
     {
         [SerializeField] private Transform gunPoint;
-        [SerializeField] private int damage;
-        [SerializeField] private int bulletSpeed;
-        [SerializeField] private int shootDelay;
 
         public override event Action OnShoot;
 
+        private WeaponConfig config;
         private BulletFactory bulletFactory;
         private float timer;
 
-        public override void Init(BulletFactory bulletFactory)
+        public override void Init(WeaponConfig config, BulletFactory bulletFactory)
         {
+            this.config = config;
             this.bulletFactory = bulletFactory;
         }
 
@@ -31,8 +30,8 @@ namespace TopDownShooter
             if (timer>= 0)
                 return;
 
-            bulletFactory.Create(gunPoint.position, gunPoint.forward, damage, bulletSpeed);
-            timer = shootDelay;
+            bulletFactory.Create(config.bulletPrefab, gunPoint, config.damage, config.bulletSpeed);
+            timer = 1/config.shootRate;
         }
     }
 }

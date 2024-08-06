@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00b8f63e11849b47b5bd5de2fd519ae, type: 3}
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
-  player: {fileID: 649636663194610722, guid: 468c7f1ca774b2a46a4a975c67331615, type: 3}
-  enemy: {fileID: 6032860420144832298, guid: 25b39f1bb67df9244a9e499badb6997a, type: 3}
-  bullet: {fileID: 6076724734452148272, guid: c6c69c2150fe4be49a0b22ead28c68f9, type: 3}
+  prefab: {fileID: 649636663194610722, guid: 468c7f1ca774b2a46a4a975c67331615, type: 3}

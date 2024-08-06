@@ -12,13 +12,12 @@ namespace TopDownShooter
         [SerializeField] private AimBase aim;
         [SerializeField] private InventoryBase inventory;
         [SerializeField] private Transform weaponSlot;
-        [Header("Curren state")]
-        [SerializeField] private WeaponBase weapon;
 
         private IInput input;
         private WeaponFactory weaponFactory;
+        private WeaponBase weapon;
 
-        public void Init(IInput input, WeaponFactory weaponFactory, BulletFactory bulletFactory)
+        public void Init(IInput input, WeaponFactory weaponFactory)
         {
             this.input = input;
             this.weaponFactory = weaponFactory;
@@ -26,7 +25,6 @@ namespace TopDownShooter
             //TODO health.Init();
             //TODO movement.Init();
             //TODO aim.Init();
-            weapon?.Init(bulletFactory);
             inventory.Init();
 
             input.OnInputMove += Move;
@@ -50,6 +48,7 @@ namespace TopDownShooter
             if (weapon != null)
             {
                 Destroy(weapon.gameObject);
+                weapon = null;
             }
             weapon = weaponFactory.Create(config, weaponSlot);
         }

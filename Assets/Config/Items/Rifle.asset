@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5878b41892a4460469fbafafaa352724, type: 3}
-  m_Name: Pistol
+  m_Name: Rifle
   m_EditorClassIdentifier: 
-  id: Pistol
+  id: Rifle
   itemPrefab: {fileID: 3873781157877417409, guid: 1a77d136fa234e747baa2f3f36607126,
     type: 3}
   destroyTime: 5
-  weaponPrefab: {fileID: 2359703401639157630, guid: 3d8fde4d66015724ea0bd5ded4ab3d2e,
+  weaponPrefab: {fileID: 2359703401639157630, guid: 58a821bf81b5e8f43b39a14ebf315bfd,
     type: 3}
   bulletPrefab: {fileID: 6076724734452148272, guid: c6c69c2150fe4be49a0b22ead28c68f9,
     type: 3}
   bulletSpeed: 20
-  damage: 3
-  shootRate: 2
+  damage: 1
+  shootRate: 10

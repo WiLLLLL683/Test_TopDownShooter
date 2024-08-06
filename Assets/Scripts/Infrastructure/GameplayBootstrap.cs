@@ -14,7 +14,7 @@ namespace TopDownShooter
         [Header("UI")]
         [SerializeField] private HudUI hudUI;
         [Header("Config")]
-        [SerializeField] private PrefabConfig prefabConfig;
+        [SerializeField] private PlayerConfig playerConfig;
         [SerializeField] private EnemySetConfig enemySetConfig;
         [SerializeField] private ItemSetConfig weaponSetConfig;
         [SerializeField] private ItemSetConfig bonusSetConfig;
@@ -37,9 +37,9 @@ namespace TopDownShooter
 
             //player independent services
             scoreService = new(0); //TODO загрузка очков
-            bulletFactory = new(prefabConfig.bullet);
+            bulletFactory = new();
             weaponFactory = new(bulletFactory);
-            playerFactory = new(prefabConfig.player, playerSpawnPoint, input, weaponFactory, bulletFactory);
+            playerFactory = new(playerConfig.prefab, playerSpawnPoint, input, weaponFactory);
 
             //player spawn
             Player player = playerFactory.Create();
