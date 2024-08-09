@@ -8,8 +8,8 @@ namespace TopDownShooter
     {
         private readonly IWeaponOwner player;
         private readonly PickUpFactory pickUpFactory;
-        private readonly ItemSetConfig weaponSet;
-        private readonly ItemSetConfig bonusSet;
+        private readonly BonusSetConfig weaponSet;
+        private readonly BonusSetConfig bonusSet;
 
         private const int MAX_ITERATIONS = 100;
 
@@ -17,7 +17,7 @@ namespace TopDownShooter
         private float bonusTimer;
         private string excludedWeapon;
 
-        public PickUpSpawner(IWeaponOwner player, PickUpFactory pickUpFactory, ItemSetConfig weaponSet, ItemSetConfig bonusSet)
+        public PickUpSpawner(IWeaponOwner player, PickUpFactory pickUpFactory, BonusSetConfig weaponSet, BonusSetConfig bonusSet)
         {
             this.player = player;
             this.pickUpFactory = pickUpFactory;
@@ -50,7 +50,7 @@ namespace TopDownShooter
 
         private void SpawnWeapon()
         {
-            ItemConfig config = null;
+            BonusBase config = null;
 
             for (int i = 0; i < MAX_ITERATIONS; i++)
             {
@@ -67,7 +67,7 @@ namespace TopDownShooter
 
         private void SpawnBonus()
         {
-            ItemConfig config = weaponSet.GetRandom();
+            BonusBase config = weaponSet.GetRandom();
             pickUpFactory.Create(config);
 
             bonusTimer = bonusSet.spawnDelay;

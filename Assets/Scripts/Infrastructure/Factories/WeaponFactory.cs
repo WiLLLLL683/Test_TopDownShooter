@@ -12,7 +12,7 @@ namespace TopDownShooter
             this.bulletFactory = bulletFactory;
         }
 
-        public WeaponBase Create(WeaponConfig config, Transform parent)
+        public WeaponBase Create(WeaponBonus config, Transform parent)
         {
             WeaponBase weapon = UnityEngine.Object.Instantiate(config.weaponPrefab, parent);
             weapon.Init(config, bulletFactory);

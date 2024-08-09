@@ -6,12 +6,12 @@ namespace TopDownShooter
 {
     public class PickUp : MonoBehaviour
     {
-        [SerializeField] private ItemConfig config;
+        [SerializeField] private BonusBase bonus;
         [SerializeField] private float timer;
 
-        public void Init(ItemConfig config)
+        public void Init(BonusBase config)
         {
-            this.config = config;
+            this.bonus = config;
 
             timer = config.destroyTime;
         }
@@ -28,11 +28,9 @@ namespace TopDownShooter
 
         private void OnTriggerEnter(Collider collision)
         {
-            if (!collision.gameObject.TryGetComponent(out ICanPickUp _))
-                return;
-
-            if (config.TryPickUp(collision.gameObject))
+            if (collision.gameObject.TryGetComponent(out BonusInventoryBase bonusInventory))
             {
+                bonusInventory.AddBonus(bonus);
                 Destroy(gameObject);
             }
         }

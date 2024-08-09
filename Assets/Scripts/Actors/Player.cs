@@ -14,7 +14,7 @@ namespace TopDownShooter
         [SerializeField] private InventoryBase inventory;
         [SerializeField] private Transform weaponSlot;
         [Header("Setup")]
-        [SerializeField] private WeaponConfig initialWeapon;
+        [SerializeField] private WeaponBonus initialWeapon;
 
         public event Action<string> OnWeaponChanged;
 
@@ -54,24 +54,32 @@ namespace TopDownShooter
             health.OnDeath -= Die;
         }
 
-        public void AddWeapon(WeaponConfig config)
+        public void AddWeapon(WeaponBonus config)
         {
-            if (weapon != null)
-            {
-                Destroy(weapon.gameObject);
-                weapon = null;
-            }
+            RemoveWeapon();
             weapon = weaponFactory.Create(config, weaponSlot);
             OnWeaponChanged?.Invoke(config.id);
         }
 
+        public void RemoveWeapon()
+        {
+            if (weapon == null)
+                return;
+
+            Destroy(weapon.gameObject);
+            weapon = null;
+        }
+
         private void Move(Vector2 inputDirection) => movement.Move(new Vector3(inputDirection.x, 0, inputDirection.y));
+
         private void Attack() => weapon?.Attack(targetPosition);
+
         private void Aim(Vector3 targetPosition)
         {
             this.targetPosition = targetPosition;
             aim.SetLookTarget(targetPosition);
         }
+
         private void Die()
         {
             Disable();

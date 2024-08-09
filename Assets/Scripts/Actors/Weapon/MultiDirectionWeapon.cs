@@ -11,12 +11,12 @@ namespace TopDownShooter
 
         public override event Action OnAttack;
 
-        private WeaponConfig config;
+        private WeaponBonus config;
         private BulletFactory bulletFactory;
         private Vector3[] directions;
         private float timer;
 
-        public override void Init(WeaponConfig config, BulletFactory bulletFactory)
+        public override void Init(WeaponBonus config, BulletFactory bulletFactory)
         {
             this.config = config;
             this.bulletFactory = bulletFactory;

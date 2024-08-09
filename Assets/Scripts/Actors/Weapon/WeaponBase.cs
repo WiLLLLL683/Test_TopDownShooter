@@ -7,7 +7,7 @@ namespace TopDownShooter
     {
         public abstract event Action OnAttack;
 
-        public abstract void Init(WeaponConfig config, BulletFactory bulletFactory);
+        public abstract void Init(WeaponBonus config, BulletFactory bulletFactory);
         public abstract void Attack(Vector3 targetPos);
     }
 }

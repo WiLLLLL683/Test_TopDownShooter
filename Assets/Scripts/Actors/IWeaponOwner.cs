@@ -5,6 +5,8 @@ namespace TopDownShooter
     public interface IWeaponOwner: ICanPickUp
     {
         public event Action<string> OnWeaponChanged;
-        void AddWeapon(WeaponConfig config);
+
+        void AddWeapon(WeaponBonus config);
+        void RemoveWeapon();
     }
 }

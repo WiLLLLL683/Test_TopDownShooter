@@ -16,8 +16,8 @@ namespace TopDownShooter
         [Header("Config")]
         [SerializeField] private PlayerConfig playerConfig;
         [SerializeField] private EnemySetConfig enemySetConfig;
-        [SerializeField] private ItemSetConfig weaponSetConfig;
-        [SerializeField] private ItemSetConfig bonusSetConfig;
+        [SerializeField] private BonusSetConfig weaponSetConfig;
+        [SerializeField] private BonusSetConfig bonusSetConfig;
 
         private PlayerFactory playerFactory;
         private EnemyFactory enemyFactory;

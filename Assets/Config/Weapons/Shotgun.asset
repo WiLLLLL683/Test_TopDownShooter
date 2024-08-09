@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5878b41892a4460469fbafafaa352724, type: 3}
+  m_Script: {fileID: 11500000, guid: 74001d808154b5544a2e75c0dc5848af, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   id: Shotgun
