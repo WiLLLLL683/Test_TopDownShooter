@@ -8,9 +8,9 @@ namespace TopDownShooter
     {
         [Header("Item")]
         public string id;
-        public Item itemPrefab;
+        public PickUp itemPrefab;
         public float destroyTime;
 
-        public abstract void OnPickUp(GameObject newOwner);
+        public abstract bool TryPickUp(GameObject newOwner);
     }
 }

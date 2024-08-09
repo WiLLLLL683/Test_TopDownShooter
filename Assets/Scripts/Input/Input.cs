@@ -21,14 +21,12 @@ namespace TopDownShooter
 
             controls.Enable();
             controls.Gameplay.Pointer.performed += PointerInput;
-            controls.Gameplay.Shoot.performed += ShootInput;
         }
 
         public void Disable()
         {
             controls.Disable();
             controls.Gameplay.Pointer.performed -= PointerInput;
-            controls.Gameplay.Shoot.performed -= ShootInput;
         }
 
         public void Update()
@@ -36,6 +34,11 @@ namespace TopDownShooter
             if (controls.Gameplay.Move.IsPressed())
             {
                 MoveInput();
+            }
+
+            if (controls.Gameplay.Shoot.IsPressed())
+            {
+                ShootInput();
             }
         }
 
@@ -57,6 +60,6 @@ namespace TopDownShooter
             }
         }
 
-        private void ShootInput(InputAction.CallbackContext context) => OnInputShoot?.Invoke();
+        private void ShootInput() => OnInputShoot?.Invoke();
     }
 }

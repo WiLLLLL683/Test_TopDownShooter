@@ -13,12 +13,15 @@ namespace TopDownShooter
         [SerializeField] private AimBase aim;
         [SerializeField] private InventoryBase inventory;
         [SerializeField] private Transform weaponSlot;
+        [Header("Setup")]
+        [SerializeField] private WeaponConfig initialWeapon;
 
         public event Action<string> OnWeaponChanged;
 
         private IInput input;
         private WeaponFactory weaponFactory;
         private WeaponBase weapon;
+        private Vector3 targetPosition;
 
         public void Init(IInput input, WeaponFactory weaponFactory)
         {
@@ -29,6 +32,11 @@ namespace TopDownShooter
             //TODO movement.Init();
             //TODO aim.Init();
             inventory.Init();
+
+            if (initialWeapon != null)
+            {
+                AddWeapon(initialWeapon);
+            }
 
             input.OnInputMove += Move;
             input.OnInputShoot += Attack;
@@ -58,8 +66,12 @@ namespace TopDownShooter
         }
 
         private void Move(Vector2 inputDirection) => movement.Move(new Vector3(inputDirection.x, 0, inputDirection.y));
-        private void Attack() => weapon?.Attack();
-        private void Aim(Vector3 targetPosition) => aim.SetLookTarget(targetPosition);
+        private void Attack() => weapon?.Attack(targetPosition);
+        private void Aim(Vector3 targetPosition)
+        {
+            this.targetPosition = targetPosition;
+            aim.SetLookTarget(targetPosition);
+        }
         private void Die()
         {
             Disable();

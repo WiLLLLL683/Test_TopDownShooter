@@ -60,7 +60,7 @@ namespace TopDownShooter
                     break;
             }
 
-            pickUpFactory.Create(config, 1);
+            pickUpFactory.Create(config);
 
             weaponTimer = weaponSet.spawnDelay;
         }
@@ -68,7 +68,7 @@ namespace TopDownShooter
         private void SpawnBonus()
         {
             ItemConfig config = weaponSet.GetRandom();
-            pickUpFactory.Create(config, 1);
+            pickUpFactory.Create(config);
 
             bonusTimer = bonusSet.spawnDelay;
         }

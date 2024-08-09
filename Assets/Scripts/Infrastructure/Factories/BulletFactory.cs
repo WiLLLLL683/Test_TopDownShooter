@@ -5,10 +5,10 @@ namespace TopDownShooter
 {
     public class BulletFactory
     {
-        public Bullet Create(Bullet prefab, Transform gunPoint, int damage, float speed)
+        public BulletBase Create(BulletBase prefab, Vector3 startPos, Vector3 direction, Vector3 targetPos, int damage, float speed)
         {
-            Bullet bullet = UnityEngine.Object.Instantiate(prefab, gunPoint.position, Quaternion.LookRotation(gunPoint.forward, Vector3.up));
-            bullet.Init(gunPoint.forward, damage, speed);
+            BulletBase bullet = UnityEngine.Object.Instantiate(prefab, startPos, Quaternion.LookRotation(direction, Vector3.up));
+            bullet.Init(startPos, direction, targetPos, damage, speed);
             return bullet;
         }
     }

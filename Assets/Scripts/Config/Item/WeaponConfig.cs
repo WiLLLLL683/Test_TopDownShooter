@@ -8,18 +8,21 @@ namespace TopDownShooter
     {
         [Header("Weapon")]
         public WeaponBase weaponPrefab;
-        public Bullet bulletPrefab;
+        public BulletBase bulletPrefab;
         public float bulletSpeed;
         public int damage;
         [Tooltip("Bullets per second"), Min(0.01f)]
         public float shootRate;
 
-        public override void OnPickUp(GameObject newOwner)
+        public override bool TryPickUp(GameObject newOwner)
         {
             if(newOwner.TryGetComponent(out IWeaponOwner weaponOwner))
             {
                 weaponOwner.AddWeapon(this);
+                return true;
             }
+
+            return false;
         }
     }
 }
