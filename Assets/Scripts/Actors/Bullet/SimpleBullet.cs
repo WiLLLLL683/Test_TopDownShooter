@@ -26,9 +26,9 @@ namespace TopDownShooter
 
         private void Move() => movement.Move(direction);
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider collision)
         {
-            if(collision.gameObject.TryGetComponent(out IDamageable damageable))
+            if (collision.gameObject.TryGetComponent(out IDamageable damageable))
             {
                 damageable.TakeDamage(damage);
             }

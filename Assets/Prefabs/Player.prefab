@@ -144,7 +144,7 @@ MonoBehaviour:
   aim: {fileID: 4738574192922468430}
   inventory: {fileID: 4262119385523473939}
   weaponSlot: {fileID: 4344059121672842302}
-  initialWeapon: {fileID: 11400000, guid: 559094dc99f52d347a42f95db328ea64, type: 2}
+  initialWeapon: {fileID: 0}
 --- !u!114 &6746077874436338117
 MonoBehaviour:
   m_ObjectHideFlags: 0
