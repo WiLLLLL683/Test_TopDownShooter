@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RocketLauncher
   m_EditorClassIdentifier: 
   id: RocketLauncher
-  itemPrefab: {fileID: 3873781157877417409, guid: 0103b3c4a93ef7948b7f21b51d9f6a0c,
+  pickUpPrefab: {fileID: 3873781157877417409, guid: 0103b3c4a93ef7948b7f21b51d9f6a0c,
     type: 3}
   destroyTime: 5
   weaponPrefab: {fileID: 2359703401639157630, guid: 505f82911902ded429f2b73d3ff43d2f,

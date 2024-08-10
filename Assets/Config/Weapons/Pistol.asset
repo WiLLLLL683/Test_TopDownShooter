@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   id: Pistol
-  itemPrefab: {fileID: 3873781157877417409, guid: 1a77d136fa234e747baa2f3f36607126,
+  pickUpPrefab: {fileID: 3873781157877417409, guid: 1a77d136fa234e747baa2f3f36607126,
     type: 3}
   destroyTime: 5
   weaponPrefab: {fileID: 2359703401639157630, guid: 3d8fde4d66015724ea0bd5ded4ab3d2e,

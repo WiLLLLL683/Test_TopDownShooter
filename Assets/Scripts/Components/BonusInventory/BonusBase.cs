@@ -8,7 +8,7 @@ namespace TopDownShooter
     {
         [Header("Bonus")]
         public string id;
-        public PickUp itemPrefab;
+        public PickUp pickUpPrefab;
         public float destroyTime = 5f;
 
         public abstract void OnAdd(GameObject owner, BonusInventoryBase inventory);

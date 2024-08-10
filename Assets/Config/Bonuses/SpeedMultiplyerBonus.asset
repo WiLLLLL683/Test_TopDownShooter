@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpeedMultiplyerBonus
   m_EditorClassIdentifier: 
   id: SpeedMultiplyer
-  itemPrefab: {fileID: 3873781157877417409, guid: 26e7524de5f9de84c98a70c1d28d27d9,
+  pickUpPrefab: {fileID: 3873781157877417409, guid: 26e7524de5f9de84c98a70c1d28d27d9,
     type: 3}
   destroyTime: 5
   multiplyer: 1.5

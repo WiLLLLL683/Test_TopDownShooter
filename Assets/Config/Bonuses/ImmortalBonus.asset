@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ImmortalBonus
   m_EditorClassIdentifier: 
   id: Immortal
-  itemPrefab: {fileID: 3873781157877417409, guid: 7e992902257e1d044916fcb190ab4a71,
+  pickUpPrefab: {fileID: 3873781157877417409, guid: 7e992902257e1d044916fcb190ab4a71,
     type: 3}
   destroyTime: 5
   duration: 10

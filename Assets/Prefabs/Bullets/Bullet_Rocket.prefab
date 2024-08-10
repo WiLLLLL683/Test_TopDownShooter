@@ -134,6 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 3005375216822715881}
+  explosionVFX: {fileID: 4453354001377823399, guid: b3814d97a945a2747a30484b8c843aab,
+    type: 3}
   explosionRadius: 2
   targetThreshold: 0.1
 --- !u!114 &3005375216822715881

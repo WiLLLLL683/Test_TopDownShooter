@@ -1,11 +1,13 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.VFX;
 
 namespace TopDownShooter
 {
     public class RocketBullet : BulletBase
     {
         [SerializeField] private MovementBase movement;
+        [SerializeField] private ExplosionVFX explosionVFX;
         [SerializeField] private float explosionRadius = 2f;
         [SerializeField] private float targetThreshold = 0.1f;
 
@@ -54,6 +56,8 @@ namespace TopDownShooter
                 }
             }
 
+            ExplosionVFX explosion = Instantiate(explosionVFX, transform.position, Quaternion.identity);
+            explosion.Play(explosionRadius);
             Destroy(gameObject);
         }
     }
