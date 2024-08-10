@@ -2,7 +2,7 @@
 
 namespace TopDownShooter
 {
-    public interface IWeaponOwner: ICanPickUp
+    public interface IWeaponOwner
     {
         public event Action<string> OnWeaponChanged;
 

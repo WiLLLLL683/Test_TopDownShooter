@@ -6,13 +6,15 @@ namespace TopDownShooter
 {
     public class Health : HealthBase
     {
-        public override bool IsDead { get; protected set; }
+        [SerializeField] private int currentHealth;
+        [SerializeField] private int maxHealth;
+
+        [field: SerializeField] public override bool IsDead { get; protected set; }
+        [field: SerializeField] public override bool IsImmortal { get; protected set; }
 
         public override event Action OnDeath;
         public override event Action<(int amount, int currentHealth, int maxHealth)> OnDamageTaken;
 
-        [SerializeField] private int currentHealth;
-        [SerializeField] private int maxHealth;
 
         public override void Init(int maxHealth)
         {
@@ -26,6 +28,8 @@ namespace TopDownShooter
                 return;
             if (IsDead)
                 return;
+            if (IsImmortal)
+                return;
 
             currentHealth -= amount;
             OnDamageTaken?.Invoke((amount, currentHealth, maxHealth));
@@ -35,6 +39,8 @@ namespace TopDownShooter
                 Die();
             }
         }
+
+        public override void SetImmortal(bool isImmortal) => IsImmortal = isImmortal;
 
         private void Die()
         {

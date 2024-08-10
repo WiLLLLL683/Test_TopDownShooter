@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3787dcd05dd825446b637b8f4c805cf2, type: 3}
-  m_Name: PickUpSet_Bonuses
+  m_Script: {fileID: 11500000, guid: 7fcee1a67c62b5a458d1e019f0dc770d, type: 3}
+  m_Name: ImmortalBonus
   m_EditorClassIdentifier: 
-  spawnDelay: 27
-  items:
-  - {fileID: 11400000, guid: a992f0e0136d3bd4598b7718db9e76f0, type: 2}
+  id: Immortal
+  itemPrefab: {fileID: 3873781157877417409, guid: 7e992902257e1d044916fcb190ab4a71,
+    type: 3}
+  destroyTime: 5
+  duration: 10

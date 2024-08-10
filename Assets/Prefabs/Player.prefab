@@ -159,6 +159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   maxHealth: 100
+  <IsDead>k__BackingField: 0
+  <IsImmortal>k__BackingField: 0
 --- !u!114 &1113044547054528589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c54dcc56cf344184ea03d168da13e3c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialBonuses: []
+  initialBonuses:
+  - {fileID: 0}
 --- !u!136 &5712075523608806661
 CapsuleCollider:
   m_ObjectHideFlags: 0

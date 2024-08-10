@@ -18,13 +18,16 @@ namespace TopDownShooter
 
         private IWeaponOwner weaponOwner;
 
-        public override void OnAdd(GameObject owner)
+        public override void OnAdd(GameObject owner, BonusInventoryBase inventory)
         {
-            if (owner.TryGetComponent(out IWeaponOwner weaponOwner))
+            if (!owner.TryGetComponent(out IWeaponOwner weaponOwner))
             {
-                this.weaponOwner = weaponOwner;
-                weaponOwner.AddWeapon(this);
+                inventory.RemoveBonus(this.id);
+                return;
             }
+
+            this.weaponOwner = weaponOwner;
+            weaponOwner.AddWeapon(this);
         }
 
         public override void OnRepeatAdd()
