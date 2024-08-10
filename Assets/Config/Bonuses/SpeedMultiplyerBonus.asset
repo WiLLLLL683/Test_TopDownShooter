@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3787dcd05dd825446b637b8f4c805cf2, type: 3}
-  m_Name: PickUpSet_Bonuses
+  m_Script: {fileID: 11500000, guid: c12aae617a9167e48b7215678ba50d9c, type: 3}
+  m_Name: SpeedMultiplyerBonus
   m_EditorClassIdentifier: 
-  spawnDelay: 27
-  items:
-  - {fileID: 11400000, guid: a992f0e0136d3bd4598b7718db9e76f0, type: 2}
-  - {fileID: 11400000, guid: 3647112439a27524ca29b806ad099ce9, type: 2}
+  id: SpeedMultiplyer
+  itemPrefab: {fileID: 3873781157877417409, guid: 26e7524de5f9de84c98a70c1d28d27d9,
+    type: 3}
+  destroyTime: 5
+  multiplyer: 1.5
+  duration: 10

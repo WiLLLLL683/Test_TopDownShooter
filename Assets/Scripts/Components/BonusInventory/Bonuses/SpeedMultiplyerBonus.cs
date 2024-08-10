@@ -4,27 +4,31 @@ using UnityEngine;
 namespace TopDownShooter
 {
     [Serializable]
-    [CreateAssetMenu(fileName = "ImmortalBonus", menuName = "GameConfig/ImmortalBonus")]
-    public class ImmortalBonus : BonusBase
+    [CreateAssetMenu(fileName = "SpeedMultiplyerBonus", menuName = "GameConfig/SpeedMultiplyerBonus")]
+    public class SpeedMultiplyerBonus : BonusBase
     {
-        [Header("Immortal")]
+        [Header("Speed Multiplyer")]
+        public float multiplyer = 1.5f;
         public float duration = 10f;
 
         private BonusInventoryBase inventory;
-        private HealthBase health;
+        private MovementBase movement;
+        private float initialSpeed;
         private float timer;
 
         public override void OnAdd(GameObject owner, BonusInventoryBase inventory)
         {
-            if (!owner.TryGetComponent(out HealthBase health))
+            if (!owner.TryGetComponent(out MovementBase movement))
             {
-                inventory.RemoveBonus(this.id);
+                inventory.RemoveBonus(id);
                 return;
             }
 
             this.inventory = inventory;
-            this.health = health;
-            health.SetImmortal(true);
+            this.movement = movement;
+            initialSpeed = movement.MoveSpeed;
+
+            movement.SetSpeed(initialSpeed * multiplyer);
             timer = duration;
         }
 
@@ -39,13 +43,13 @@ namespace TopDownShooter
 
             if (timer <= 0)
             {
-                inventory.RemoveBonus(this.id);
+                inventory.RemoveBonus(id);
             }
         }
 
         public override void OnRemove()
         {
-            health?.SetImmortal(false);
+            movement?.SetSpeed(initialSpeed);
         }
     }
 }

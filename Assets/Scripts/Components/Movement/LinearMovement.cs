@@ -9,9 +9,11 @@ namespace TopDownShooter
         [Tooltip("units per second")]
         [SerializeField] private float moveSpeed;
 
+        public override float MoveSpeed => moveSpeed;
+
         public override event Action OnMove;
 
-        public override void Init(float moveSpeed)
+        public override void SetSpeed(float moveSpeed)
         {
             this.moveSpeed = moveSpeed;
         }

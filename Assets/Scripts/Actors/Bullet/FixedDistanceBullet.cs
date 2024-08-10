@@ -18,7 +18,7 @@ namespace TopDownShooter
             this.startPos = startPos;
             this.damage = damage;
 
-            movement.Init(speed);
+            movement.SetSpeed(speed);
         }
 
         public void Update()

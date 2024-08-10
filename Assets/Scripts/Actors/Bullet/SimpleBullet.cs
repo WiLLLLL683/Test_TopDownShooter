@@ -16,7 +16,7 @@ namespace TopDownShooter
             this.direction = direction.normalized;
             this.damage = damage;
 
-            movement.Init(speed);
+            movement.SetSpeed(speed);
         }
 
         public void Update()

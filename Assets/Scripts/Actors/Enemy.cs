@@ -24,7 +24,7 @@ namespace TopDownShooter
 
             health.Init(config.health);
             pathFind.SetTarget(target);
-            movement.Init(config.moveSpeed);
+            movement.SetSpeed(config.moveSpeed);
             //TODO aim.Init();
 
             health.OnDeath += Die;
